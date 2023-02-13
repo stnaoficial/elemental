@@ -24,7 +24,7 @@ function loadMessages()
     else
     {
         messager.child(
-            Message("", "Nenhuma mensagem encontrada")
+            Message("Empty", "No message found")
         )
     }
 }
