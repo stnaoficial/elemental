@@ -1,24 +1,24 @@
-import { elementals } from "./elementals-global";
+import { elemental } from "./elemental-global";
 
 import { toKebabCase } from "../../utils/utils";
 
 import { CSSSupport } from "../css-support/css-support";
 import { HTMLSupport } from "../html-support/html-support";
 
-import { ElementalsInteraction } from "./elementals-interaction";
+import { ElementalInteraction } from "./elemental-interaction";
 
 /**
- * Elementals class
+ * Elemental class
  * 
- * @class Elementals
+ * @class Elemental
  */
-class Elementals
+class Elemental
 {
     readonly DEFAULT_TAG_NAME: string = "div";
     
     public context: Element;
 
-    constructor(context: Elementals.CallableContextType, attributes?: HTMLSupport.AttributesDeclarationType)
+    constructor(context: Elemental.CallableContextType, attributes?: HTMLSupport.AttributesDeclarationType)
     {
         if (context instanceof Element)
         {
@@ -49,22 +49,22 @@ class Elementals
         }
     }
 
-    static Genesis(context: Elementals.CallableContextType, attributes?: HTMLSupport.AttributesDeclarationType): Elementals
+    static Genesis(context: Elemental.CallableContextType, attributes?: HTMLSupport.AttributesDeclarationType): Elemental
     {
         if (context instanceof Element)
         {
-            const target = elementals.getOccurrenceByContext(context);
+            const target = elemental.getOccurrenceByContext(context);
 
-            if (target instanceof Elementals)
+            if (target instanceof Elemental)
             {
                 return target;
             }
         }
 
-        return elementals.setOccurrence(new this(context, attributes));
+        return elemental.setOccurrence(new this(context, attributes));
     }
     
-    public children(children: (Elementals | string)[]): Elementals
+    public children(children: (Elemental | string)[]): Elemental
     {
         for (const child of children)
         {
@@ -74,9 +74,9 @@ class Elementals
         return this;
     }
 
-    public child(child: Elementals | string): Elementals
+    public child(child: Elemental | string): Elemental
     {
-        if (child instanceof Elementals)
+        if (child instanceof Elemental)
         {
             this.context.append(child.context);
         }
@@ -88,62 +88,62 @@ class Elementals
         return this;
     }
     
-    public text(text: string): Elementals
+    public text(text: string): Elemental
     {
         this.context.textContent = text;
 
         return this;
     }
     
-    public html(html: string): Elementals
+    public html(html: string): Elemental
     {
         this.context.innerHTML = html;
 
         return this;
     }
 
-    public do(callback: (this: ElementalsInteraction) => void): Elementals
+    public do(callback: (this: ElementalInteraction) => void): Elemental
     {
-        callback.call(ElementalsInteraction.Genesis(this));
+        callback.call(ElementalInteraction.Genesis(this));
 
         return this;
     }
 }
 
-export { Elementals };
+export { Elemental };
 
 /** 
- * Elementals element implementation
+ * Elemental element implementation
  * 
- * @param context Elementals callable context
+ * @param context Elemental callable context
  * @param attributes HTMLSuppot attributes
- * @returns Elementals
+ * @returns Elemental
  */
-export function element(context: Elementals.CallableContextType = null, attributes?: HTMLSupport.AttributesDeclarationType): Elementals
+export function element(context: Elemental.CallableContextType = null, attributes?: HTMLSupport.AttributesDeclarationType): Elemental
 {
-    return Elementals.Genesis(context, attributes);
+    return Elemental.Genesis(context, attributes);
 }
 
 /** 
- * Elementals element implementation
+ * Elemental element implementation
  * 
- * @param context Elementals callable context
+ * @param context Elemental callable context
  * @param attributes HTMLSuppot attributes
- * @returns Elementals
+ * @returns Elemental
  */
-export function component(context: Elementals.CallableContextType = null, attributes?: HTMLSupport.AttributesDeclarationType): Elementals
+export function component(context: Elemental.CallableContextType = null, attributes?: HTMLSupport.AttributesDeclarationType): Elemental
 {
-    return Elementals.Genesis(context, attributes);
+    return Elemental.Genesis(context, attributes);
 }
 
 /** 
- * Elementals element implementation
+ * Elemental element implementation
  * 
- * @param context Elementals callable context
+ * @param context Elemental callable context
  * @param attributes HTMLSuppot attributes
- * @returns Elementals
+ * @returns Elemental
  */
-export function layout(context: Elementals.CallableContextType = null, attributes?: HTMLSupport.AttributesDeclarationType): Elementals
+export function layout(context: Elemental.CallableContextType = null, attributes?: HTMLSupport.AttributesDeclarationType): Elemental
 {
-    return Elementals.Genesis(context, attributes);
+    return Elemental.Genesis(context, attributes);
 }

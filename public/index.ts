@@ -1,4 +1,4 @@
-import { layout } from "../src/core/instance/elementals/elementals";
+import { layout } from "../src/core/instance/elemental/elemental";
 import Chat from "./components/Chat";
 
 layout(document.body, {

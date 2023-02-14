@@ -10,7 +10,7 @@ module.exports = {
             template: path.resolve(__dirname, 'public/index.html')
         }),
         new EnvironmentPlugin({
-            VERSION: "0.0.1"
+            // Env variables
         })
     ],
     entry: {
@@ -20,7 +20,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.ts?$/,
+                test: /\.ts$/,
                 loader: 'ts-loader',
                 exclude: /node_modules|\.d\.ts$/
             },

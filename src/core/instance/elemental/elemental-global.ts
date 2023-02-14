@@ -1,37 +1,37 @@
-import { Elementals } from "./elementals";
+import { Elemental } from "./elemental";
 
 declare global
 {
     interface Window
     {
-        elementals: any
+        elemental: any
     }
 }
 
 /**
- * Elementals Global Instance
+ * Elemental Global Instance
  * 
  * Responsible for storing and distributing information during
- * several Elementals instances
+ * several Elemental instances
  * 
- * @const { object } elementals
+ * @const { object } elemental
  */
-export const elementals = window.elementals = new class
+export const elemental = window.elemental = new class
 {
-    public occurrences: Elementals[] = [];
+    public occurrences: Elemental[] = [];
 
-    public aliases: { [key: string]: Elementals } = {};
+    public aliases: { [key: string]: Elemental } = {};
 
     public metadata: { [key: string]: any } = {};
     
-    setOccurrence(target: Elementals): Elementals
+    setOccurrence(target: Elemental): Elemental
     {
         this.occurrences.push(target);
     
         return target;
     }
     
-    getOccurrenceByContext(context: Element): Elementals | null
+    getOccurrenceByContext(context: Element): Elemental | null
     {
         for (const target of this.occurrences)
         {
@@ -56,7 +56,7 @@ export const elementals = window.elementals = new class
         return this.aliases[name] === undefined? false : true;
     }
     
-    getAlias(name: string): Elementals
+    getAlias(name: string): Elemental
     {
         if (this.hasAlias(name))
         {
@@ -68,19 +68,19 @@ export const elementals = window.elementals = new class
         }
     }
     
-    setAlias(name: string, target?: Elementals): Elementals
+    setAlias(name: string, target?: Elemental): Elemental
     {
-        if (target instanceof Elementals)
+        if (target instanceof Elemental)
         {
             return this.aliases[name] = target;
         }
         else
         {
-            throw new Error("Target alias is not an instance of Elementals");
+            throw new Error("Target alias is not an instance of Elemental");
         }
     }
     
-    getOrSetAlias(name: string, target?: Elementals): Elementals
+    getOrSetAlias(name: string, target?: Elemental): Elemental
     {
         if (target === undefined)
         {
@@ -161,17 +161,17 @@ export const elementals = window.elementals = new class
     }
 }
 
-export function alias(name: string, target?: Elementals): Elementals
+export function alias(name: string, target?: Elemental): Elemental
 {
-    return elementals.getOrSetAlias(name, target);
+    return elemental.getOrSetAlias(name, target);
 }
 
 export function meta(name: string, data?: any): any
 {
-    return elementals.getOrSetMeta(name, data);
+    return elemental.getOrSetMeta(name, data);
 }
 
 export function storage(name: string, data?: any)
 {
-    return elementals.storage(name, data);
+    return elemental.storage(name, data);
 }

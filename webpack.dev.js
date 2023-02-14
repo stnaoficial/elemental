@@ -16,9 +16,9 @@ module.exports = merge(common, {
         onListening: (server) => {
             // Clear default console output
             console.clear();
-            console.log(chalk.bgHex("#5E5CE6").bold("\n                 \n  Elementals.js  \n                 \n"));
+            console.log(chalk.bgHex("#5E5CE6").bold("\n                 \n  Elemental.js  \n                 \n"));
             console.log(`${ chalk.blueBright(`> Listening `) } ${ chalk.greenBright.underline(`http://localhost:${ server.options.port }`) }\n`);
-            console.log(`${ chalk.blueBright(`> Comment `) } ✨ Welcome to Elementals! ✨ 🧑‍💻 👩‍💻\n`);
+            console.log(`${ chalk.blueBright(`> Comment `) } ✨ Welcome to Elemental! ✨ 🧑‍💻 👩‍💻\n`);
         },
     }
 })

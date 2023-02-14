@@ -46,7 +46,7 @@ declare namespace HTMLSupport
     type AttributesDeclarationType = AttributesDeclaration | {};
 }
 
-declare namespace Elementals
+declare namespace Elemental
 {
     type CallableContextType = HTMLSupport.TagNameTypes | Element | null;
 }

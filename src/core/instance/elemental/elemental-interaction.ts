@@ -1,25 +1,25 @@
-import { Elementals } from "./elementals";
+import { Elemental } from "./elemental";
 
 /**
- * Elementals Interaction class
+ * Elemental Interaction class
  * 
- * @class ElementalsInteraction
+ * @class ElementalInteraction
  */
-class ElementalsInteraction
+class ElementalInteraction
 {
-    public target: Elementals;
+    public target: Elemental;
 
-    public constructor(target: Elementals)
+    public constructor(target: Elemental)
     {
         this.target = target;
     }
 
-    static Genesis(target: Elementals): ElementalsInteraction
+    static Genesis(target: Elemental): ElementalInteraction
     {
         return new this(target);
     }
 
-    public on(type: string, callback: (this: ElementalsInteraction, event: Event) => void): void
+    public on(type: string, callback: (this: ElementalInteraction, event: Event) => void): void
     {
         this.target.context.addEventListener(type, callback.bind(this));
     }
@@ -82,4 +82,4 @@ class ElementalsInteraction
     }
 }
 
-export { ElementalsInteraction };
+export { ElementalInteraction };
