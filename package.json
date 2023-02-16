@@ -1,10 +1,10 @@
 {
-  "name": "elementalsjs",
+  "name": "@stnaoficial/elemental",
   "description": "A typescript library for building interfaces.",
   "keywords": [
     "nexusjs"
   ],
-  "version": "1.0.2",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --env development --mode development --config webpack.dev.js --no-stats && node webpack",
