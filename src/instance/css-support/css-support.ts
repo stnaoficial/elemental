@@ -1,5 +1,3 @@
-import { HTMLSupport } from "../html-support/html-support";
-
 /**
  * CSS Support
  * 
@@ -14,7 +12,7 @@ class CSSSupport
     {
         let cssText: string = "";
         
-        const element: Element = HTMLSupport.CreateElementByTagName("template");
+        const element: Element = document.createElement("template");
 
         if (element instanceof HTMLTemplateElement)
         {

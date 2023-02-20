@@ -1,9 +1,8 @@
 {
   "name": "@stnaoficial/elemental",
+  "private": false,
   "description": "A typescript library for building interfaces.",
-  "keywords": [
-    "nexusjs"
-  ],
+  "keywords": [ "typescript", "library" ],
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {

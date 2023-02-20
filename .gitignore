@@ -1,8 +1,9 @@
 node_modules/
 
-*.log
-*.dist.*
-*.lock
-*-lock.*
+public/
 
+/**/*.log
+/**/*.dist.*
+/**/*.lock
+/**/*-lock.*
 /**/.DS_Store
